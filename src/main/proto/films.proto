@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.aidan.films";
+option java_outer_classname = "FilmsProto";
+
+package film;
+
+service Films {
+  rpc GetRating (RatingRequest) returns (Rating) {}
+  rpc Rate (RateRequest) returns (Rating) {}
+}
+
+message RatingRequest {
+  string filmName = 1;
+}
+
+message RateRequest {
+  string filmName = 1;
+  int32 rating = 2;
+}
+
+message Rating {
+  int32 rating = 1;
+}
